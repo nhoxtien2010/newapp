@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timecreate: 2015-03-31 16:25:19
+  timelock: 2015-03-31 16:25:19
+  totalmoney: 1
+  user_id: 
+
+two:
+  timecreate: 2015-03-31 16:25:19
+  timelock: 2015-03-31 16:25:19
+  totalmoney: 1
+  user_id: 

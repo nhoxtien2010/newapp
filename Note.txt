@@ -1,0 +1,3 @@
+Link huong dan voi i18n: http://www.sitepoint.com/go-global-rails-i18n/
+
+website tao database:  http://ondras.zarovi.cz/sql/demo/

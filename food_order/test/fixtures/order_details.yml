@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  food_id: 
+  number: 1
+  totalmoney: 1
+  order_session_id: 
+
+two:
+  user_id: 
+  food_id: 
+  number: 1
+  totalmoney: 1
+  order_session_id: 

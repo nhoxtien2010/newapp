@@ -1,0 +1,138 @@
+rails command line basic:
+-rails console
+-rails server
+-rake
+-rails generate
+-rails dbconsole
+-rails new app_name
+
++ rails new: create new rails app(install rails to install rails gem)
+
++ rails server: launches a small web server named WEBrick wich comes bundled with ruby.(http://localhost:3000 is running). bin/rails server -e production -p 4000 : change port to 4000
+
++ rails generate: generate a lot of thing: assets, controller, generater,... to save boilerplate code. ex: rails generate controller Greetings hello, rails generate model,... 
+- scaffold in Rails is a full set of model, database migration for that model , controller to mainipulate it, view to view and mainoulate the data, and a test suite for each of above. ex: rails generate scaffold ...
+
+
++ rails console : the console comand lets you interact with your Rails application from the command line.
+
++ rails dbconsole: figure out which database  you're using and drops you into whichever command line interface you would use with it.
+
++ rails runner: runs Ruby code in the context of Rails non-interactively. ex: rails runner "Model.long_running_method"
+
++ rails destroy: oposite of generate.
+
+==========================================================
+Rake (Ruby Make) command:
++ rake --tasks: list rake tasks
++ rake about: a bout application's environment
++ assets: 
+- precompile the assets in app/assets : rake assets:precompile
+- remove older compile assets : rake assets:clean
+- to clear public/assets completely: rake assets:clobber
++ db:
+- migrate
+- create
+- db: version : useful when troubleshooting
++ doc:
+- rake doc:app generate documentation for your app in doc/app
+- rake doc:guides ... doc/guides
+- rake doc:rails generates API documentation for Rails in doc/api
++ note: ake notes will search through your code for comments beginning with FIXME, OPTIMIZE or TODO. The search is done in files with extension .builder, .rb, .rake, .yml, .yaml, .ruby, .css, .js and .erb for both default and custom annotations.
+
++ routes: ake notes will search through your code for comments beginning with FIXME, OPTIMIZE or TODO. The search is done in files with extension .builder, .rb, .rake, .yml, .yaml, .ruby, .css, .js and .erb for both default and custom annotations.
+
++ test: Rails comes with a test suite called Minitest
++ tmp: The Rails.root/tmp directory is, like the *nix /tmp directory, the holding place for temporary files like sessions (if you're using a file store for sessions), process id files, and cached actions. ex: 
+-rake tmp:cache:clear clears tmp/cache.
+-rake tmp:sessions:clear clears tmp/sessions.
+-rake tmp:sockets:clear clears tmp/sockets.
+-rake tmp:clear clears all the three: cache, sessions and sockets.
+-rake tmp:create creates tmp directories for sessions, cache, sockets, and pids 
++ custom rake task:
+	$ bin/rake task_name
+	$ bin/rake "task_name[value 1]" # entire argument string should be quoted
+	$ bin/rake db:nothing
+==============================================================
+Rails advanced command:
++ Rails with Databases and SCM: rails new . --git --database=postgresql: create git repo and database is postgresql.
+
+==============================================================
+==============================================================
+- three types of caching techniques: page, action and fragment caching, rails default fragment caching.
+- setting on onfig/environments/*.rb:
+	config.action_controller.perform_caching = true
++++++++++++++++++++++++++++
+Page caching:  is a Rails mechanism which allows the request for a generated page to be fulfilled by the webserver 
+
+Obviously, this is super-fast. Unfortunately, it can't be applied to every situation (such as pages that need authentication) and since the webserver is literally just serving a file from the filesystem, cache expiration is an issue that needs to be dealt with.
++++++++++++++++++++++++++++
+Action Caching
+
+Action Caching works like Page Caching except the incoming web request hits the Rails stack so that before filters can be run on it before the cache is served
+
++++++++++++++++++++++++++++
+
+Fragment Caching allows a fragment of view logic to be wrapped in a cache block and served out of the cache store when the next request comes in.
+
+
+==============================================================
+==============================================================
+Heroku
+
+-clonning heroku app: heroku git:clone -a myapp
+-heroku login
+-heroku create
+-git push heroku master
+-heroku logs --tail
+- define a procfile: Use a Procfile, a text file in the root directory of your application, to explicitly declare what command should be executed to start your app.
+- scale app :heroku ps:scale web=2
+- declare dependence: in gemfile
+- create appropriate database : bundle exec rake db:create db:migrate
+- start local app with foreman: foreman start web (localhost:5000)
+- push local change: git add ., git commit -m message, git push heroku master, heroku open(check everything open)
+- Provision add-ons: 
++  heroku addons:add papertrail : addomg add-on
++ heroku addons: list add-ons for app
++ heroku addons:open papertrail : A console will open up, showing the latest log events, and providing you with an interface to search and set up alerts.
++ heroku database: 
+- $heroku pg:psql
+- $heroku run rake db:migrate
+list addons: 
+	$heroku addons
+show config:
+	$heroku config
+show more info about heroku pg:
+	$heroku pg
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SendGrid 
+- is an add-on for providing scalable email delivery and analytics for apps
+
+attach sendrid for app:
+ 	$heroku addons:add sendgrid:starter
+set username and password for sendgrid: 
+	$heroku config:get SENDGRID_USERNAME
+	appXYZ@heroku.com
+
+	$ heroku config:get SENDGRID_PASSWORD
+	password
+
+
+config/environment.rb
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
+
+ $heroku addons:open sendgrid
+ $ heroku addons:upgrade sendgrid:platinum
+ $heroku addons:remove sendgrid
+
+
+
+
