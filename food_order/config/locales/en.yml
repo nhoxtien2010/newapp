@@ -1,11 +1,10 @@
-
 en:
   home:
     index:
       header: "FOOD ORDER"
     menu:
+      option: Option
       login: Login  
       chaninfo: Change Profile Infomation
       chanpas: Change Password
-      logout: Logout
-      chanlan: Chuyển sang Tiếng Việt
+      logout: Logout      

@@ -9,6 +9,7 @@
   %body
     %p.notice= notice
     %p.alert= alert    
-    = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true
+    = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true 
+    |
     = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
     = yield
