@@ -15,5 +15,19 @@
  */
 
 
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {float:none;}
+
+.vcenter {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}

@@ -1,0 +1,10 @@
+vi:
+  home:
+    index:
+      header: "GỌI MÓN ĂN"
+  menu:
+    login: Đăng nhập   
+    chaninfo: Thay đổi thông tin cá nhân
+    chanpas: Thay đổi mật khẩu
+    logout: Đăng xuất
+    chanlan: Translate to English

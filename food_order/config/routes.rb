@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+  root 'home#index'
+
+  post '/change_locale/:locale', to: 'setting#change_locale', as: :change_locale
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

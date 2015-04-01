@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FoodOrder
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %p.notice= notice
+    %p.alert= alert    
+    = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true
+    = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
+    = yield
