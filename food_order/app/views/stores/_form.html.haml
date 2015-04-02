@@ -1,0 +1,29 @@
+= form_for(@store) do |f|
+  - if @store.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@store.errors.count, "error")
+        prohibited this store from being saved:
+      %ul
+        - @store.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('menu.name')
+        = f.text_field :name, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('menu.address')
+        = f.text_field :address, :class => "form-control col-md-8"
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('menu.contact')
+        = f.text_field :contact, :class => "form-control col-md-8"
+  .row.clearfix
+    .col-md-8
+      = f.submit t('store.create'),:class=>"btn btn-default center-block"

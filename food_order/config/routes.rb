@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :order_details
+  resources :order_stores
+  resources :order_sessions
+  resources :foods
+  # devise_for :users
+  resources :stores
+
   
   get 'home/index'
 

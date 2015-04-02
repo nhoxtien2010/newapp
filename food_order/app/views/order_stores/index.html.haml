@@ -1,0 +1,36 @@
+%p#notice= notice
+%h1.text-center= t('store.lstore')
+%table
+  %thead
+    %tr
+      %th=t('food.store')
+      %th=t('orderdt.orderss')
+      %th{:colspan => "3"}
+  %tbody
+    - @order_stores.each do |order_store|
+      %tr
+        %td= order_store.store
+        %td= order_store.order_session
+        %td= link_to 'Show', order_store
+        %td= link_to 'Edit', edit_order_store_path(order_store)
+        %td= link_to 'Destroy', order_store, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('menu.name')
+        %th=t('menu.address')
+        %th=t('menu.contact')
+        %th{:colspan => "3"}
+    %tbody
+      - Store.select do |store|
+        %tr
+          %td= store.name
+          %td= store.address
+          %td= store.contact
+          %td= link_to t('menu.show'), store, :class => "btn btn-default"
+          %td= link_to t('menu.edit'), edit_store_path(store) , :class => "btn btn-default"
+          %td= link_to t('menu.destroy'), store, method: :delete, data: { confirm: t('menu.confirm') } , :class => "btn btn-default"
+%br/
+= link_to t('orderstore.new'), new_order_store_path

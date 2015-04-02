@@ -1,0 +1,56 @@
+= form_for(@order_detail) do |f|
+  - if @order_detail.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@order_detail.errors.count, "error")
+        prohibited this order_detail from being saved:
+      %ul
+        - @order_detail.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.user')
+        %select.selectpicker.form-control{:name => "order_detail[user_id]"}
+          - User.select([:id, :name]).each do |uname|
+            %option{:value => uname.id}= uname.name
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.food')
+        %select.selectpicker.form-control{:name => "order_detail[food_id]"}
+          - Food.select([:id, :name]).each do |fname|
+            %option{:value => fname.id}= fname.name
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.number')
+        = f.text_field :number, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.total')
+        = f.text_field :total, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.orderss')
+        %select.selectpicker.form-control{:name => "order_detail[order_session_id]"}
+          - OrderSession.select([:id, :user_id, :time_lock, :time_create]).each do |ods|
+            %option{:value => ods.id}
+              User:
+              - ods.user_id
+              \-Time create#{ods.time_create}-Time lock: #{ods.time_lock}
+      / /input-group
+    / /.col-lg-6
+  .row.clearfix
+    .col-md-8
+      = f.submit t('menu.create'),:class => "btn btn-default center-block"

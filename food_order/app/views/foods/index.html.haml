@@ -1,0 +1,21 @@
+%p#notice= notice
+%h1=t('food.lst')
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('menu.name')
+        %th=t('food.cost')
+        %th=t('food.store')
+        %th{:colspan => "3"}
+    %tbody
+      - @foods.each do |food|
+        %tr
+          %td= food.name
+          %td= food.cost_per_unit
+          %td= food.store.name
+          %td= link_to t('menu.show'), food
+          %td= link_to t('menu.edit'), edit_food_path(food)
+          %td= link_to t('menu.destroy'), food, method: :delete, data: { confirm: t('menu.confirm') }
+%br/
+= link_to t('food.new'), new_food_path

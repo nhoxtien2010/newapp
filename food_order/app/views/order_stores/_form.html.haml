@@ -1,0 +1,33 @@
+= form_for(@order_store) do |f|
+  - if @order_store.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@order_store.errors.count, "error")
+        prohibited this order_store from being saved:
+      %ul
+        - @order_store.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('menu.name')
+        = f.text_field :name, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('food.store')
+        = f.text_field :store_id, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row
+    .col-md-8
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('orderdt.orderss')
+        = f.text_field :order_session_id, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+  .row.clearfix
+    .col-md-8
+      = f.submit t('menu.create'),:class => "btn btn-default center-block"

@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong=t('menu.name')
+  = @food.name
+%p
+  %strong=t('food.cost')
+  = @food.cost
+%p
+  %strong=t('food.store')
+  = @food.store.name
+= link_to t('menu.edit'), edit_food_path(@food)
+|
+= link_to t('menu.back'), foods_path

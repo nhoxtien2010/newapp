@@ -1,0 +1,17 @@
+%p#notice= notice
+%p
+  %strong=t('orderss.timec')
+  = @order_session.time_create
+%p
+  %strong=t('orderss.timel')
+  = @order_session.time_lock
+%p
+  %strong=t('orderss.total')
+  = @order_session.total_money
+%p
+  %strong=t('orderss.user')
+  = @order_session.user.name
+  (#{@order_session.user.email})
+= link_to t('menu.edit'), edit_order_session_path(@order_session)
+|
+= link_to t('menu.back'), order_sessions_path 

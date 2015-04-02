@@ -33,4 +33,44 @@ vi:
               blank: Mật khẩu không được để trống!
             email:
               blank: Email không được để trống!
-              
+  food:
+    new:  Thêm món  ăn  
+    cost: Gía
+    store: Cửa hàng
+    create: Tạo món ăn
+    lst: Danh sách các món ăn
+  store:
+    lstore: Danh sách cửa hàng
+    new: Thêm cửa hàng
+    create: Tạo cửa hàng
+    edit: Sửa thông tin cửa hàng
+    store: Cửa hàng
+  menu:
+    back: Quay lại
+    show: Xem
+    name: Tên
+    edit: Sửa
+    destroy: Xóa
+    address: Địa chỉ
+    contact: Liên lạc
+    confirm: Bạn có chắc không??
+    create: Tạo
+  oderdt:
+    user: Người đặt
+    food: Món ăn
+    number: Số lượng
+    total: Tổng tiền
+    orderss: Đặt món ăn
+    edit: Sửa chi tiết đặt món ăn
+    lst: Danh sách chi tiết đặt món ăn
+    new: Tạo mới chi tiết đặt món ăn
+  orderss:
+    timec: Thời gian tạo
+    timel: Thời gian khóa
+    order: Người mời
+    edit: Chỉnh sửa đặt món ăn
+    list: Danh sách đặt món ăn
+    new: Tạo mới đặt món ăn
+  orderstore:
+    edit: Chỉnh sửa Đặt món-Cửa hàng
+    new: Tạo mới Đặt món-Cửa hàng

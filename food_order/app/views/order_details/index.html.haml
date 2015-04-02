@@ -1,0 +1,25 @@
+%p#notice= notice
+%h1= t('orderdt.lst')
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('orderdt.user')
+        %th=t('orderdt.food')
+        %th=t('orderdt.number')
+        %th=t('orderdt.total')
+        %th=t('orderdt.orderss')
+        %th{:colspan => "3"}
+    %tbody
+      - @order_details.each do |order_detail|
+        %tr
+          %td= order_detail.user
+          %td= order_detail.food
+          %td= order_detail.number
+          %td= order_detail.total
+          %td= order_detail.order_session
+          %td= link_to t('menu.show'), order_detail
+          %td= link_to t('menu.edit'), edit_order_detail_path(order_detail)
+          %td= link_to t('menu.destroy'), order_detail, method: :delete, data: { confirm: t('menu.confirm') }
+%br/
+= link_to t('orderdt.new'), new_order_detail_path, :class => "btn btn-default"

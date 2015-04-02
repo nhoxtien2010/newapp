@@ -1,0 +1,21 @@
+%p#notice= notice
+%h1.text-center=t('store.lstore')
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('menu.name')
+        %th=t('menu.address')
+        %th=t('menu.contact')
+        %th{:colspan => "3"}
+    %tbody
+      - @stores.each do |store|
+        %tr
+          %td= store.name
+          %td= store.address
+          %td= store.contact
+          %td= link_to t('menu.show'), store, :class => "btn btn-default"
+          %td= link_to t('menu.edit'), edit_store_path(store) , :class => "btn btn-default"
+          %td= link_to t('menu.destroy'), store, method: :delete, data: { confirm: t('menu.confirm') } , :class => "btn btn-default"
+%br/
+= link_to t('store.new'), new_store_path , :class => "btn btn-default"

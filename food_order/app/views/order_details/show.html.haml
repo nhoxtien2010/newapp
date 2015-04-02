@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong=t('orderdt.user')
+  = @order_detail.user
+%p
+  %strong=t('orderdt.food')
+  = @order_detail.food
+%p
+  %strong=t('orderdt.number')
+  = @order_detail.number
+%p
+  %strong=t('orderdt.total')
+  = @order_detail.total
+%p
+  %strong=t('orderdt.orderss')
+  = @order_detail.order_session
+= link_to t('menu.edit'), edit_order_detail_path(@order_detail)
+|
+= link_to t('menu.back'), order_details_path

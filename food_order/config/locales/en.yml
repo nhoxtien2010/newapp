@@ -24,4 +24,48 @@ en:
     didntrcconfirm: Didn't receive confirmation instructions?
     didntrcunlock: Didn't receive unlock instructions?
     signinwith: Sign in with
+  food:
+    new: New Food    
+    cost: Cost
+    store: Store
+    create: Create Food
+    lst: Listing Foods
+    store: Store
+  store:
+    lstore: Listing Stores
+    new: New store
+    create: Create Store
+    edit: Editing Store
+  menu:
+    back: Back
+    show: Show
+    name: Name
+    edit: Edit
+    destroy: Destroy
+    address: Address
+    contact: Contact
+    confirm: Are you sure??
+    create: Create
+  oderdt:
+    user: User
+    food: Food
+    number: Number
+    total: Total
+    orderss: Order Session
+    edit: Editing order detail
+    lst: Listing Order Details
+    new: New Order detail
+  orderss:
+    timec: Time create
+    timel: Time lock
+    order: The order
+    edit: Editing order session
+    list: Listing order session
+    new: New order session
+  orderstore:
+    edit: Editing Order-Store
+    new: New Order-Store
+
+
+
 

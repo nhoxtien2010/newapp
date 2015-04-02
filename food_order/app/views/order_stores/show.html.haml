@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong=t('food.store')
+  = @order_store.store
+%p
+  %strong=t('orderdt.orderss')
+  = @order_store.order_session
+= link_to t('menu.edit'), edit_order_store_path(@order_store)
+|
+= link_to t('menu.back'), order_stores_path}

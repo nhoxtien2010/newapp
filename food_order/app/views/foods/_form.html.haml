@@ -1,0 +1,32 @@
+
+
+.col-md-8.col-md-offset-2
+  = form_for(@food) do |f|
+    - if @food.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@food.errors.count, "error")
+          prohibited this food from being saved:
+        %ul
+          - @food.errors.full_messages.each do |message|
+            %li= message
+    .row
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('menu.name')
+        = f.text_field :name, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+    .row
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('food.cost')
+        = f.text_field :cost, :class => "form-control"
+      / /input-group
+    / /.col-lg-6
+    .row
+      .input-group
+        %span#sizing-addon1.input-group-addon=t('food.store')
+        %select.selectpicker.form-control{:name => "food[store_id]"}
+          - Store.select([:id, :name]).each do |stname|
+            %option{:value => stname.id}= stname.name
+    .row.clearfix      
+      = f.submit t('food.create'),:class=>"btn btn-default center-block"

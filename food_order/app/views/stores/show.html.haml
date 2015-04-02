@@ -1,0 +1,25 @@
+.col-md-8.col-md-offset-2
+  .col-md-6
+    %p
+      %strong=t('menu.name')
+      = @store.name
+    %p
+      %strong=t('menu.address')
+      = @store.address
+    %p
+      %strong=t('menu.contact')
+      = @store.contact
+  .col-md-6
+
+
+    / list food on store
+    .table-responsive
+      %table.table
+        %tbody
+          %ol
+            - Food.find_by store_id: @store.id  do |f|
+              %p f.name
+              %p f.cost_per_unit
+  .col-md-12
+    = link_to t('menu.edit'), edit_store_path(@store), :class => "btn btn-default"    
+    = link_to t('menu.back'), stores_path, :class => "btn btn-default"

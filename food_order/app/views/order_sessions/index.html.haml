@@ -1,0 +1,25 @@
+%p#notice= notice
+%h1=t('orderss.list')
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('orderss.timec')
+        %th=t('orderss.timel')
+        %th=t('orderss.total')
+        %th=t('orderss.user')
+        %th{:colspan => "3"}
+    %tbody
+      - @order_sessions.each do |order_session|
+        %tr
+          %td= order_session.time_create
+          %td= order_session.time_lock
+          %td= order_session.total_money
+          %td
+            = order_session.user.name
+            (#{order_session.user.email})
+          %td= link_to t('menu.show'), order_session, :class=>"btn btn-default"
+          %td= link_to t('menu.edit'), edit_order_session_path(order_session) , :class=>"btn btn-default"
+          %td= link_to  t('menu.destroy'), order_session, method: :delete, data: { confirm: t('menu.confirm') }, :class=>"btn btn-default"
+%br/
+= link_to t('orderss.new'), new_order_session_path 

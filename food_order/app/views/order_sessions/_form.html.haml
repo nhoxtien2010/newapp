@@ -1,0 +1,28 @@
+= form_for(@order_session) do |f|
+  - if @order_session.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@order_session.errors.count, "error")
+        prohibited this order_session from being saved:
+      %ul
+        - @order_session.errors.full_messages.each do |message|
+          %li= message
+  / time create
+  .input-group
+    %span#sizing-addon1.input-group-addon=t('orderss.timec')      
+    = succeed "," do
+      %input#order_session_time_create{:name => "order_session[time_create]", :type => "datetime-local"}/
+  / time lock
+  .input-group
+    %span#sizing-addon1.input-group-addon=t('orderss.timel')
+    = datetime_local_field(:order_session, :time_lock)
+  / user select
+  .input-group
+    %span#sizing-addon1.input-group-addon=t('orderss.order')
+    %select.selectpicker.form-control{:id => "", :name => "order_session[user_id]"}
+      - User.select([:id, :name,:email]).each do |stname|
+        %option{:value => ""}
+        = stname.id
+        ">#{stname.name} (#{stname.email})
+.row.clearfix
+  = f.submit :class => "btn btn-default center-block"
