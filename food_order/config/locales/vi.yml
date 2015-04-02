@@ -1,10 +1,36 @@
 vi:
   home:
     index:
-      header: "GỌI MÓN ĂN"
+      header: GỌI MÓN ĂN
     menu:
       option: Chức năng
       login: Đăng nhập  
       chaninfo: Thay đổi thông tin cá nhân
       chanpas: Thay đổi mật khẩu
       logout: Đăng xuất  
+  devise:
+    login: Đăng nhập
+    pass: Mật khẩu
+    passcofirm: Xác nhận mật khẩu
+    remember: Nhớ tài khoản của tôi
+    name: Họ tên
+    gender: Giới tính
+    singup: Đăng ký
+    fgpass: Quên mật khẩu?
+    sndpassinstruc: Gửi hướng dẫn khôi phục mật khẩu
+    male: Nam
+    female: Nữ
+    charmi: ký tự ít nhất
+    didntrcconfirm: Bạn chưa nhận được hướng dẫn xác thực?
+    didntrcunlock: Bạn chưa nhận được hướng dẫn mở khóa? 
+    signinwith: Đăng nhập với
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: Mật khẩu không được để trống!
+            email:
+              blank: Email không được để trống!
+              

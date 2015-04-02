@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   
   get 'home/index'
 
-  devise_for :users
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,6 +9,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/change_locale/:locale', to: 'setting#change_locale', as: :change_locale
+
+  devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

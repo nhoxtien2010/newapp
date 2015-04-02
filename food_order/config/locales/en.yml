@@ -1,10 +1,27 @@
 en:
   home:
     index:
-      header: "FOOD ORDER"
+      header: FOOD ORDER
     menu:
       option: Option
       login: Login  
       chaninfo: Change Profile Infomation
       chanpas: Change Password
       logout: Logout      
+  devise:
+    login: Log in
+    pass: Password
+    passcofirm: Password confirmation
+    remember: Remember me
+    name: Name
+    gender: Gender
+    singup: Sign up
+    fgpass: Forgot your password?
+    sndpassinstruc: Send me password reset instruction
+    male: Male
+    female: Female
+    charmi: characters minimum
+    didntrcconfirm: Didn't receive confirmation instructions?
+    didntrcunlock: Didn't receive unlock instructions?
+    signinwith: Sign in with
+

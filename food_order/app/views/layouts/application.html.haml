@@ -12,4 +12,12 @@
     = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true 
     |
     = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
+    |
+    - if user_signed_in?
+      - if (current_user.permission == 2 )
+        = link_to "Admin", '#'
+        |
+      - elsif (current_user.permission == 3)
+        = link_to "Manager", '#'
+        |
     = yield
