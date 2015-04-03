@@ -33,6 +33,8 @@ vi:
               blank: Mật khẩu không được để trống!
             email:
               blank: Email không được để trống!
+            password_confirmation:
+              confirmation: Mật khẩu và mật khẩu xác nhận không khớp
   food:
     new:  Thêm món  ăn  
     cost: Gía
@@ -55,6 +57,7 @@ vi:
     contact: Liên lạc
     confirm: Bạn có chắc không??
     create: Tạo
+    update: Cập nhật
   oderdt:
     user: Người đặt
     food: Món ăn

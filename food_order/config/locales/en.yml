@@ -24,6 +24,7 @@ en:
     didntrcconfirm: Didn't receive confirmation instructions?
     didntrcunlock: Didn't receive unlock instructions?
     signinwith: Sign in with
+    crpass: Current password
   food:
     new: New Food    
     cost: Cost
@@ -46,7 +47,7 @@ en:
     contact: Contact
     confirm: Are you sure??
     create: Create
-    udpate: Update
+    update: Update
   oderdt:
     user: User
     food: Food

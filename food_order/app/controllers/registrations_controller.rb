@@ -1,9 +1,17 @@
-class User::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
 
   def edit
     @chanpas = params[:chanpas]
-    @abc = "test app"
+    
   end
+
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+
 
   private
 
