@@ -22,13 +22,13 @@
             %span.caret
           %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
             %li{:role => "presentation"}
-              %a{:href => "#", :role => "menuitem", :tabindex => "-1"}=I18n.t('home.menu.login')
+              = link_to t('home.menu.login'), new_user_session_path
             %li{:role => "presentation"}
-              %a{:href => "#", :role => "menuitem", :tabindex => "-1"}=I18n.t('home.menu.chaninfo')
+              = link_to t('home.menu.chanpas'), edit_user_registration_path(current_user,:chanpas => true)
             %li{:role => "presentation"}
-              %a{:href => "#", :role => "menuitem", :tabindex => "-1"}=I18n.t('home.menu.chanpas')
-            %li{:role => "presentation"}
-              %a{:href => "#", :role => "menuitem", :tabindex => "-1"}=I18n.t('home.menu.logout')      
+              = link_to t('home.menu.chaninfo'), edit_user_registration_path(current_user,:chanpas => false)
+            %li{:role => "presentation"}              
+              = link_to t('home.menu.logout'), destroy_user_session_path, :method => :delete      
   
     
       

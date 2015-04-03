@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   # devise_for :users
   resources :stores
 
+  scope "/admin" do
+    resources :users
+  end
+
   
-  get 'home/index'
+  get "home/index"
+  get '/admin/use' => "users#destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,10 +22,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/change_locale/:locale', to: 'setting#change_locale', as: :change_locale
+  post '/reset/:user', to: 'user#resetpas', as: :reset_pass
+
 
   devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
-
-  # Example of regular route:
+  
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

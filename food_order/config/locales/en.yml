@@ -46,6 +46,7 @@ en:
     contact: Contact
     confirm: Are you sure??
     create: Create
+    udpate: Update
   oderdt:
     user: User
     food: Food
@@ -65,7 +66,15 @@ en:
   orderstore:
     edit: Editing Order-Store
     new: New Order-Store
-
-
-
-
+  store:
+    lstore: Listing User(Admin page)
+    new: New store
+    create: Create Store
+    edit: Editing Store
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: Password confirmation doesn't match Password

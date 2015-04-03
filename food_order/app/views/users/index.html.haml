@@ -1,0 +1,37 @@
+%p#notice= notice
+%h1.text-center=t('user.lsuser')
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th=t('user.name')
+        %th=t('user.email')        
+        %th=t('user.gender')       
+        %th=t('user.permission')
+        %th{:colspan => "3"}
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.name
+          %td= user.email
+          %td
+            - if user.gender == true 
+              = t('devise.male')
+            - else
+              = t('devise.female')
+          %td= user.password
+          %td 
+            - if user.permission == 1 
+              = t('user.permission.user')
+            - elsif user.permission ==2
+              = t('user.permission.manager')
+            - else
+              = t('user.permission.admin') 
+
+          %td= link_to t('menu.edit'), edit_user_path(user), :class => "btn btn-default"
+
+          %td= link_to t('user.resetpas'), reset_pass_path(user), :class => "btn btn-default",:method=> :post, :remote => true 
+          
+          %td= link_to t('menu.destroy'), user, method: :delete, data: { confirm: t('menu.confirm') } , :class => "btn btn-default"
+%br/
+= link_to t('user.new'), new_user_registration_path , :class => "btn btn-default"
