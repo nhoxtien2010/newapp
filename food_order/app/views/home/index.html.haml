@@ -1,66 +1,32 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
-    
-    
-    %title Food Order Page
-    
-    
-  %body
-    %nav.navbar.navbar-default{:role => "navigation"}
-      .col-md-10.col-xm-12
-        .navbar-header
-          %h1.navbar-brand=I18n.t('home.index.header')
-      .vcenter.col-md-2.col-xm-12
-        .dropdown.pull-right
-          %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
-            =I18n.t('home.menu.option')
-            %span.caret
-          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
-            %li{:role => "presentation"}
-              = link_to t('home.menu.login'), new_user_session_path
-            %li{:role => "presentation"}
-              = link_to t('home.menu.chanpas'), edit_user_registration_path(current_user,:chanpas => true)
-            %li{:role => "presentation"}
-              = link_to t('home.menu.chaninfo'), edit_user_registration_path(current_user,:chanpas => false)
-            %li{:role => "presentation"}              
-              = link_to t('home.menu.logout'), destroy_user_session_path, :method => :delete      
-  
-    
-      
-    .row
-      .col-lg-4
-        %h2 Order sessions
-        %p.text-danger As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details »
+.container
+  .row
+    .col-lg-4
+      %h2 Order sessions
+      %p.text-danger As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.
+      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      %p
+        %a.btn.btn-primary{:href => "#", :role => "button"} View details »
 
 
-   
-      .col-lg-4
-        %h2 Store
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details »
-
-
-  
-      .col-lg-4
-        %h2 User
-        %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details »
+ 
+    .col-lg-4
+      %h2 Store
+      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      %p
+        %a.btn.btn-primary{:href => "#", :role => "button"} View details »
 
 
 
-      / Site footer
-    %footer.footer
-      %p.text-center © Coppyright by TienNT
-    / /container
-    / IE10 viewport hack for Surface/desktop Windows 8 bug
-   
+    .col-lg-4
+      %h2 User
+      %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
+      %p
+        %a.btn.btn-primary{:href => "#", :role => "button"} View details »
+
+
+
+    / Site footer
+  %footer.footer
+    %p.text-center © Coppyright by TienNT
+  / /container
+  / IE10 viewport hack for Surface/desktop Windows 8 bug

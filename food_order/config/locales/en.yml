@@ -25,6 +25,8 @@ en:
     didntrcunlock: Didn't receive unlock instructions?
     signinwith: Sign in with
     crpass: Current password
+    dnthaveacount: Don't have an account!
+    confirm: Currently waiting confirmation for
   food:
     new: New Food    
     cost: Cost
@@ -48,6 +50,7 @@ en:
     confirm: Are you sure??
     create: Create
     update: Update
+    editus: Edit User
   oderdt:
     user: User
     food: Food

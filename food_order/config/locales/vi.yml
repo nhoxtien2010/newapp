@@ -24,6 +24,9 @@ vi:
     didntrcconfirm: Bạn chưa nhận được hướng dẫn xác thực?
     didntrcunlock: Bạn chưa nhận được hướng dẫn mở khóa? 
     signinwith: Đăng nhập với
+    dnthaveacount: Bạn chưa có tài khoản??
+    confirm: Hiện tại đang chờ xác nhận cho
+    crpass: Mật khẩu hiện tại
   activerecord:
     errors:
       models:
@@ -33,6 +36,7 @@ vi:
               blank: Mật khẩu không được để trống!
             email:
               blank: Email không được để trống!
+              taken: Email này đã tồn tại!!
             password_confirmation:
               confirmation: Mật khẩu và mật khẩu xác nhận không khớp
   food:
@@ -58,6 +62,7 @@ vi:
     confirm: Bạn có chắc không??
     create: Tạo
     update: Cập nhật
+    editus: Sửa thông tin người dùng.
   oderdt:
     user: Người đặt
     food: Món ăn

@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+  skip_before_filter :verify_authenticity_token, :only => :create
   def edit
     @chanpas = params[:chanpas]
     
@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:name, :gender, :email, :profile_picture, :permission, :password_confirmation)
+    params.require(:user).permit(:name, :gender, :email, :profile_picture, :permission,:password, :password_confirmation)
   end
 
   def account_update_params

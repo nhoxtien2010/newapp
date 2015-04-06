@@ -7,17 +7,34 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert    
-    = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true 
-    |
-    = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
-    |
-    - if user_signed_in?
-      - if (current_user.permission == 2 )
-        = link_to "Admin", 'users_path'
-        |
-      - elsif (current_user.permission == 3)
-        = link_to "Manager", '#'
-        |
+    %nav.navbar.navbar-default
+
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href => "#"} 
+        %button.navbar-toggle.collapsed{ "aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Project name
+    #navbar
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} Home
+        %li
+          %a{:href => "#"} Page 1
+        %li
+          %a{:href => "#"} Page 2
+        %li
+          %a{:href => "#"} Page 3
+      
+      
+
+
+
+      
+  
+
+
     = yield
