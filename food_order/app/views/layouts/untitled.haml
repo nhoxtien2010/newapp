@@ -1,0 +1,21 @@
+    /                 = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
+      /               %li{:role => "presentation"}
+      /                 = link_to "Tiếng Việt", change_locale_path(:locale => :vi),:method=> :post, :remote => true 
+              
+      /         %li
+      /           %a{:href => "#"} Page 2
+      /         %li
+      /           %a{:href => "#"} Page 3
+    / %p.notice= notice
+    / %p.alert= alert   
+     
+    / |
+    
+    / |
+    / - if user_signed_in?
+    /   - if (current_user.permission == 2 )
+    /     = link_to "Admin", 'users_path'
+    /     |
+    /   - elsif (current_user.permission == 3)
+    /     = link_to "Manager", '#'
+    /     |
