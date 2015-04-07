@@ -3,7 +3,7 @@
     .panel.panel-info
       .panel-heading
         .panel-title.text-center=t('devise.login')        
-      .panel-body{:style => "padding-top:30px"}
+      .panel-body{:style => "padding-top:30px"}        
         #login-alert.alert.alert-danger.col-sm-12{:style => "display:none"}
         %form#new_user.new_user.form-horizontal{"accept-charset" => "UTF-8", :action => "/login", :method => "post"}
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/

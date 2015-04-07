@@ -2,44 +2,89 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FoodOrder
+    %title=t('index.header')
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %nav.navbar.navbar-inverse.navbar-static-top
-
-      .container-fluid
+      
+  %body 
+            
+    %nav.navbar.navbar-default.navbar-fixed-top
+      .container
         .navbar-header
-          %a.navbar-brand{:href => "#"} Food Order
-
-          %button.navbar-toggle{ "data-toggle"=>"collapse"  , "data-target" =>".navHeaderCollapse" } 
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-            
-        .navbar-collapse.collapse.navbarHaeaderCollapse
-          %ul.nav.navbar-nav.navbar-right
+          %a.navbar-brand{:href => "#"}=t('home.index.header')
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
             %li.active
-              %a{:href=>"#"} Home 
+              %a{:href => "#"}=t('home.menu.home')
             %li
-              %a{:href=>"#"} Blog 
+              %a{:href => "#about"}=t('food.store')
+            %li
+              %a{:href => "#contact"}=t('oderdt.food')
             %li.dropdown
-              %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"} Social Media
-              %b.caret
-              %ul
-                %li
-                  %a{:href=>"#"} Twitter
-                %li
-                  %a{:href=>"#"} Facebook
-                %li
-                  %a{:href=>"#"} Google+
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                =t('home.menu.option')
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li{:role => "presentation"}
+                  = link_to t('home.menu.login'), new_user_session_path
+                %li{:role => "presentation"}
+                  = link_to t('home.menu.chanpas'), edit_user_registration_path(current_user,:chanpas => true)
+                %li{:role => "presentation"}
+                  = link_to t('home.menu.chaninfo'), edit_user_registration_path(current_user,:chanpas => false)
+                %li{:role => "presentation"}              
+                  = link_to t('home.menu.logout'), destroy_user_session_path, :method => :delete
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to "English", change_locale_path(:locale => :en), :method=> :post, :remote => true
+            %li
+              = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true
+       
+    
+    .container#content  
+      .jumbotron
+        %p.notice= notice
+        %p.alert= alert
+        = yield
+
+    / .nav.navbar.navbar-default.navbar-fixed-bottom{:role => "navigation"}
+    /   .navbar-header
+    /     %a.navbar-brand{:href => "#"} TutorialsPoint
+
+    %footer.footer.footer-default.footer-fixed-bottom
+      .container.text-center              
+        %span.glyphicon.glyphicon-thumbs-up{"aria-hidden"=>"true"} 
+        Designed by TienNT
+         
+
+
+/ layout test
+/ !!!
+/ %html
+/   %head
+/     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+/     %title FoodOrder
+/     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+/     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+/     = csrf_meta_tags
+/   %body
+/     %p.notice= notice
+/     %p.alert= alert    
+/     = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true 
+/     |
+/     = link_to "English", change_locale_path(:locale => :en),:method=> :post, :remote => true
+/     |
+/     - if user_signed_in?
+/       - if (current_user.permission == 2 )
+/         = link_to "Admin", 'users_path'
+/         |
+/       - elsif (current_user.permission == 3)
+/         = link_to "Manager", '#'
+/         |
+/     = yield
               
-            %li
-              %a{:href=>"#"} Cocial media 
-            %li
-              %a{:href=>"#"} About 
-            %li
-              %a{:href=>"#"} Contact 
-            
-    = yield

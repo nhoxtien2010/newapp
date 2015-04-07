@@ -7,7 +7,8 @@ en:
       login: Login  
       chaninfo: Change Profile Infomation
       chanpas: Change Password
-      logout: Logout      
+      logout: Logout
+      home: Home           
   devise:
     login: Log in
     pass: Password

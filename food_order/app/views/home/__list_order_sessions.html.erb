@@ -1,0 +1,17 @@
+
+
+<div class="table-responsive">
+  <table class="table">
+    
+    <tbody>      
+        <ul id="foobar">
+          <% OrderSession.select do |od| %>
+
+            <li>
+              <span class = "glyphicon glyphicon-hand-right"></span><%= link_to "User name:" +od.user.name+", Time create: "+(od.time_create.to_s)+", Time lock: "+ (od.time_lock.to_s), od %></li>
+          <%end%>         
+        </ol>
+    
+    </tbody>
+  </table>
+</div>

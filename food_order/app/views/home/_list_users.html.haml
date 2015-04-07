@@ -1,0 +1,7 @@
+%ul#foobar
+  - User.select do |us|
+    %li
+      %span.glyphicon.glyphicon-hand-right
+      = link_to us.name+" ("+ us.email+")", new_session_path(us)
+    
+

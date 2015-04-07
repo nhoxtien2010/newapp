@@ -1,0 +1,13 @@
+<div class="table-responsive">
+  <table class="table">
+    
+    <tbody>      
+        <ol id="foobar">
+          <% Store.select do |store| %>
+          <li><%= link_to store.name, store %></li>
+          <%end%>         
+        </ol>
+    
+    </tbody>
+  </table>
+</div>
