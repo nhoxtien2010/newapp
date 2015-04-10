@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
+  belongs_to :role
+  before_create :default_role
 
-  after_initialize :init
+
+  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,8 +12,8 @@ class User < ActiveRecord::Base
 
   
 
-    def init
-      self.permission  ||= 1           #will set the default permission is user
-      
-    end
+   private
+   def default_role
+    self.role = Role.where(:name => 'user').first
+  end
 end

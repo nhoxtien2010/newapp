@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331092754) do
+ActiveRecord::Schema.define(version: 20150410080224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(version: 20150331092754) do
   add_index "order_stores", ["order_session_id"], name: "index_order_stores_on_order_session_id", using: :btree
   add_index "order_stores", ["store_id"], name: "index_order_stores_on_store_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -85,11 +91,12 @@ ActiveRecord::Schema.define(version: 20150331092754) do
     t.string   "name"
     t.boolean  "gender"
     t.string   "profile_picture"
-    t.integer  "permission"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   add_foreign_key "foods", "stores"
   add_foreign_key "order_details", "foods"
@@ -98,4 +105,5 @@ ActiveRecord::Schema.define(version: 20150331092754) do
   add_foreign_key "order_sessions", "users"
   add_foreign_key "order_stores", "order_sessions"
   add_foreign_key "order_stores", "stores"
+  add_foreign_key "users", "roles"
 end

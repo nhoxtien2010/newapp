@@ -4,10 +4,10 @@
   %table.table
     %thead
       %tr
-        %th=t('user.name')
-        %th=t('user.email')        
-        %th=t('user.gender')       
-        %th=t('user.permission')
+        %th=t('devise.name')
+        %th= "Email"        
+        %th=t('devise.gender')       
+        %th=t('devise.permission')
         %th{:colspan => "3"}
     %tbody
       - @users.each do |user|
@@ -21,12 +21,12 @@
               = t('devise.female')
           %td= user.password
           %td 
-            - if user.permission == 1 
-              = t('user.permission.user')
-            - elsif user.permission ==2
+            - if user.role_id == 1 
+              = t('user.permission.admin')
+            - elsif user.role_id == 2
               = t('user.permission.manager')
             - else
-              = t('user.permission.admin') 
+              = t('user.permission.user') 
 
           %td= link_to t('menu.edit'), edit_user_path(user), :class => "btn btn-default"
 

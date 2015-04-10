@@ -1,4 +1,8 @@
 vi:
+  user:
+    lsuser: Danh sách người dùng
+    new: Tạo mới người dùng
+    resetpas: Khôi phục lại mật khẩu
   home:
     index:
       header: GỌI MÓN ĂN
@@ -28,6 +32,7 @@ vi:
     dnthaveacount: Bạn chưa có tài khoản??
     confirm: Hiện tại đang chờ xác nhận cho
     crpass: Mật khẩu hiện tại
+    permission: Quyền
   activerecord:
     errors:
       models:

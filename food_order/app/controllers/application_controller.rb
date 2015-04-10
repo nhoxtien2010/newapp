@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
 before_action :set_locale
 before_filter :configure_permitted_parameters, if: :devise_controller?
+
+rescue_from CanCan::AccessDenied do |exception|
+  redirect_to root_url, :alert => exception.message
+end
+
+
  
 def set_locale
   I18n.locale = session[:locale] || I18n.default_locale

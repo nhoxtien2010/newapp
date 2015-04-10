@@ -26,24 +26,37 @@
               %a{:href => "#about"}=t('food.store')
             %li
               %a{:href => "#contact"}=t('oderdt.food')
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                =t('home.menu.option')
-                %span.caret
-              %ul.dropdown-menu{:role => "menu"}
-                %li{:role => "presentation"}
-                  = link_to t('home.menu.login'), new_user_session_path
-                %li{:role => "presentation"}
-                  = link_to t('home.menu.chanpas'), edit_user_registration_path(current_user,:chanpas => true)
-                %li{:role => "presentation"}
-                  = link_to t('home.menu.chaninfo'), edit_user_registration_path(current_user,:chanpas => false)
-                %li{:role => "presentation"}              
-                  = link_to t('home.menu.logout'), destroy_user_session_path, :method => :delete
+            - if user_signed_in?
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  =t('home.menu.option')
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li{:role => "presentation"}
+                    = link_to t('home.menu.login'), new_user_session_path
+                  %li{:role => "presentation"}
+                    = link_to t('home.menu.chanpas'), edit_user_registration_path(current_user,:chanpas => true)
+                  %li{:role => "presentation"}
+                    = link_to t('home.menu.chaninfo'), edit_user_registration_path(current_user,:chanpas => false)
+                  %li{:role => "presentation"}              
+                    = link_to t('home.menu.logout'), destroy_user_session_path, :method => :delete
           %ul.nav.navbar-nav.navbar-right
             %li
               = link_to "English", change_locale_path(:locale => :en), :method=> :post, :remote => true
             %li
               = link_to "Tiếng Việt", change_locale_path(:locale => :vi), :method=> :post, :remote => true
+            - if user_signed_in?        
+              - if current_user.role.name == "admin"
+                %li
+                  = link_to "Admin", users_path
+              - elsif current_user.role.name == "manager"  
+                %li
+                  = link_to "Manager"
+              - else
+                %li
+                  = link_to "Welcome #{current_user.name}"
+
+
        
     
     .container#content  

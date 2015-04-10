@@ -1,4 +1,8 @@
 en:
+  user:
+    lsuser: List User
+    new: Create new user
+    resetpas: Reset password
   home:
     index:
       header: FOOD ORDER
@@ -28,6 +32,7 @@ en:
     crpass: Current password
     dnthaveacount: Don't have an account!
     confirm: Currently waiting confirmation for
+    permission: Permission
   food:
     new: New Food    
     cost: Cost
